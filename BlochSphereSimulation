@@ -5,14 +5,14 @@ from matplotlib.widgets import Slider
 def draw_bloch_sphere(ax, theta, phi):
     ax.clear()
 
-    u = np.linspace(0, 2 * np.pi, 100)
+    u = np.linspace(0, 2 * np.pi, 100) #generates a continuous set of evenly distributed domain values over a specific range to accurately render curves and plots
     v = np.linspace(0, np.pi, 100)
 
-    x = np.outer(np.cos(u), np.sin(v))
+    x = np.outer(np.cos(u), np.sin(v)) #to produce a 2D matrix from two 1D arrays by multiplying every element of the first vector with every element of the second vector
     y = np.outer(np.sin(u), np.sin(v))
-    z = np.outer(np.ones_like(u), np.cos(v))
+    z = np.outer(np.ones_like(u), np.cos(v)) #np.ones_like(u) generates an identity matrix of size equal to matrix u
 
-    ax.plot_surface(x, y, z, alpha=0.15)
+    ax.plot_surface(x, y, z, alpha=0.15)#generaates a surface for plotting the bloch sphere. alpha denotes the opacity of the boundary lines
 
     ax.plot([-1, 1], [0, 0], [0, 0], color="black")
     ax.plot([0, 0], [-1, 1], [0, 0], color="black")
@@ -48,7 +48,7 @@ def draw_bloch_sphere(ax, theta, phi):
 
 
 def update(value):
-    theta = np.radians(theta_slider.val)
+    theta = np.radians(theta_slider.val)#both the azimuthal and polar angles can be changed with the help of slider function
     phi = np.radians(phi_slider.val)
 
     draw_bloch_sphere(ax, theta, phi)
