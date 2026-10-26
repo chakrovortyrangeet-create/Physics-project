@@ -10,9 +10,9 @@ def draw_bloch_sphere(ax, theta, phi):
 
     x = np.outer(np.cos(u), np.sin(v)) #to produce a 2D matrix from two 1D arrays by multiplying every element of the first vector with every element of the second vector
     y = np.outer(np.sin(u), np.sin(v))
-    z = np.outer(np.ones_like(u), np.cos(v)) #np.ones_like(u) generates an identity matrix of size equal to matrix u
+    z = np.outer(np.ones_like(u), np.cos(v)) #np.ones_like(u) generates an matrix filled with 1s of size equal to matrix u
 
-    ax.plot_surface(x, y, z, alpha=0.15)#generaates a surface for plotting the bloch sphere. alpha denotes the opacity of the boundary lines
+    ax.plot_surface(x, y, z, alpha=0.15)#generates a surface for plotting the bloch sphere. alpha denotes the opacity of the surface
 
     ax.plot([-1, 1], [0, 0], [0, 0], color="black")
     ax.plot([0, 0], [-1, 1], [0, 0], color="black")
